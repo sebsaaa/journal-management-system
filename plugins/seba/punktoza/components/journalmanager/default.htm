@@ -1,0 +1,426 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg: #ffffff;
+        --text-main: #0a0a0a;
+        --text-muted: #737373;
+        --text-light: #a3a3a3;
+        --border: #e5e5e5;
+        --border-dark: #262626;
+        --accent: #000000;
+        --blue: #0066cc;
+    }
+
+    body {
+        background-color: var(--bg);
+        margin: 0;
+    }
+
+    .sc-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 24px;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-main);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .sc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 40px;
+        padding-bottom: 0px;
+    }
+
+    .sc-title {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        margin: 0 0 4px 0;
+    }
+
+    .sc-subtitle {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin: 0;
+    }
+
+    .sc-count {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .sc-alert {
+        background: #fafafa;
+        border-left: 2px solid #10b981;
+        color: #047857;
+        padding: 16px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .sc-grid {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+    }
+
+    .sc-section {
+        padding-top: 20px;
+        border-top: 2px solid var(--border-dark);
+    }
+
+    .sc-section-title {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin: 0 0 24px 0;
+        color: var(--text-main);
+    }
+
+    .sc-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+    }
+
+    .sc-input, .sc-select {
+        width: 100%;
+        padding: 10px 0;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+        color: var(--text-main);
+        font-family: inherit;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+
+    .sc-input::placeholder {
+        color: var(--text-light);
+    }
+
+    .sc-input:focus, .sc-select:focus {
+        outline: none;
+        border-bottom-color: var(--text-main);
+    }
+
+    .sc-file-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        font-size: 14px;
+        color: var(--text-muted);
+        transition: color 0.2s;
+    }
+
+    .sc-file-label:hover {
+        color: var(--text-main);
+    }
+
+    .sc-file-label input {
+        display: none;
+    }
+
+    .sc-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid var(--text-main);
+        background: transparent;
+        color: var(--text-main);
+        text-decoration: none;
+        font-family: inherit;
+        transition: all 0.2s;
+    }
+
+    .sc-btn-solid {
+        background: var(--text-main);
+        color: var(--bg);
+    }
+
+    .sc-btn-solid:hover {
+        background: #333;
+        border-color: #333;
+    }
+
+    .sc-btn:hover:not(.sc-btn-solid) {
+        background: #fafafa;
+    }
+
+    .sc-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .sc-table th {
+        padding: 16px 0;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sc-table td {
+        padding: 20px 0;
+        font-size: 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+    }
+
+    .sc-id {
+        color: var(--text-light);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .sc-title-cell {
+        font-weight: 500;
+        max-width: 300px;
+        line-height: 1.5;
+    }
+
+    .sc-issn {
+        font-family: ui-monospace, monospace;
+        font-size: 13px;
+        color: var(--text-muted);
+    }
+
+    .sc-eissn {
+        color: var(--text-light);
+        font-size: 12px;
+        display: block;
+        margin-top: 4px;
+    }
+    
+    .sc-disciplines {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        max-width: 400px;
+    }
+
+    .sc-points {
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .sc-points[data-val="200"] { color: #059669; }
+    .sc-points[data-val="140"] { color: #0284c7; }
+    .sc-points[data-val="100"] { color: #4f46e5; }
+    .sc-points[data-val="70"] { color: #d97706; }
+    .sc-points[data-val="40"] { color: #dc2626; }
+    .sc-points[data-val="20"] { color: var(--text-muted); }
+
+    .sc-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+    }
+
+    .sc-page-nav {
+        display: flex;
+        gap: 8px;
+    }
+
+    .sc-page-link {
+        padding: 6px 12px;
+        font-size: 13px;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .sc-page-link:hover {
+        color: var(--text-main);
+    }
+
+    .sc-page-current {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-main);
+    }
+
+    @media (max-width: 900px) {
+        .sc-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .sc-filters-row {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sc-table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    }
+</style>
+
+<div class="sc-wrap">
+    
+    <div class="sc-header">
+        <div>
+            <h1 class="sc-title">Wykaz czasopism</h1>
+            <p class="sc-subtitle">Oficjalny rejestr Ministerstwa Edukacji i Nauki</p>
+        </div>
+        <div class="sc-count">
+            <span>{{ __SELF__.journals.total }} wyników</span>
+        </div>
+    </div>
+
+    {% if __SELF__.messageSuccess %}
+        <div class="sc-alert">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            {{ __SELF__.messageSuccess }}
+        </div>
+    {% endif %}
+
+    <div class="sc-grid">
+        
+        <div class="sc-section">
+            <h3 class="sc-section-title">Import danych</h3>
+            <form method="POST" enctype="multipart/form-data">
+                {{ form_token() }}
+                <label class="sc-file-label">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    <span>Wybierz plik .csv</span>
+                    <input type="file" name="csv_file" accept=".csv" required onchange="this.previousElementSibling.textContent = this.files[0].name">
+                </label>
+                <button type="submit" class="sc-btn sc-btn-solid" style="width: 100%; margin-top: 24px;">
+                    Rozpocznij import
+                </button>
+            </form>
+        </div>
+
+        <div class="sc-section">
+            <h3 class="sc-section-title">Wyszukiwanie i filtry</h3>
+            <form method="GET">
+                <div class="sc-filters-row" style="display: flex; gap: 40px; margin-bottom: 24px;">
+                    <div style="flex: 1;">
+                        <label class="sc-label">Tytuł lub numer ISSN</label>
+                        <input type="text" name="search_phrase" value="{{ __SELF__.searchPhrase }}" class="sc-input" placeholder="Wprowadź frazę...">
+                    </div>
+                    <div style="flex: 1;">
+                        <label class="sc-label">Dyscyplina naukowa</label>
+                        <input type="text" name="search_discipline" value="{{ __SELF__.searchDiscipline }}" class="sc-input" placeholder="Wprowadź dyscyplinę...">
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;">
+                    <div style="width: 200px;">
+                        <label class="sc-label">Wartość punktowa</label>
+                        <select name="selected_points" class="sc-select">
+                            <option value="">Wszystkie punkty</option>
+                            <option value="200" {{ __SELF__.selectedPoints == '200' ? 'selected' : '' }}>200 pkt</option>
+                            <option value="140" {{ __SELF__.selectedPoints == '140' ? 'selected' : '' }}>140 pkt</option>
+                            <option value="100" {{ __SELF__.selectedPoints == '100' ? 'selected' : '' }}>100 pkt</option>
+                            <option value="70" {{ __SELF__.selectedPoints == '70' ? 'selected' : '' }}>70 pkt</option>
+                            <option value="40" {{ __SELF__.selectedPoints == '40' ? 'selected' : '' }}>40 pkt</option>
+                            <option value="20" {{ __SELF__.selectedPoints == '20' ? 'selected' : '' }}>20 pkt</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px;">
+                        {% if __SELF__.searchPhrase or __SELF__.searchDiscipline or __SELF__.selectedPoints %}
+                            <a href="{{ url('/') }}" class="sc-btn">Resetuj</a>
+                        {% endif %}
+                        <button type="submit" class="sc-btn sc-btn-solid">Szukaj</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="sc-table">
+        <thead>
+            <tr>
+                <th style="width: 60px;">ID</th>
+                <th>Tytuł czasopisma</th>
+                <th style="width: 160px;">ISSN</th>
+                <th style="width: 100px;">Punkty</th>
+                <th style="width: 40%;">Dyscypliny</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for journal in __SELF__.journals %}
+                <tr>
+                    <td class="sc-id">{{ journal.uid }}</td>
+                    <td class="sc-title-cell">{{ journal.title }}</td>
+                    <td>
+                        <span class="sc-issn">{{ journal.issn ?: '—' }}</span>
+                        {% if journal.eissn %}
+                            <span class="sc-eissn">{{ journal.eissn }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <span class="sc-points" data-val="{{ journal.points }}">{{ journal.points }}</span>
+                    </td>
+                    <td>
+                        <div class="sc-disciplines">
+                            {{ journal.disciplines | join(', ') ?: '<span style="color:var(--text-light);">Brak przypisania</span>' }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" style="padding: 60px 0; text-align: center; color: var(--text-muted);">
+                        Brak wyników spełniających kryteria wyszukiwania.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if __SELF__.journals.lastPage > 1 %}
+        <div class="sc-pagination">
+            <div class="sc-page-nav">
+                {% if __SELF__.journals.currentPage > 1 %}
+                    <a href="{{ __SELF__.journals.url(1) }}" class="sc-page-link">Pierwsza</a>
+                    <a href="{{ __SELF__.journals.url(__SELF__.journals.currentPage - 1) }}" class="sc-page-link">Poprzednia</a>
+                {% endif %}
+            </div>
+
+            <div class="sc-page-current">
+                Strona {{ __SELF__.journals.currentPage }} z {{ __SELF__.journals.lastPage }}
+            </div>
+
+            <div class="sc-page-nav">
+                {% if __SELF__.journals.currentPage < __SELF__.journals.lastPage %}
+                    <a href="{{ __SELF__.journals.url(__SELF__.journals.currentPage + 1) }}" class="sc-page-link">Następna</a>
+                    <a href="{{ __SELF__.journals.url(__SELF__.journals.lastPage) }}" class="sc-page-link">Ostatnia</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+</div>
