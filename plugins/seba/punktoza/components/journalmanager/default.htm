@@ -336,10 +336,10 @@
                     </div>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;">
-                    <div style="width: 200px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; ">
+                    <div style="width: 400px; ">
                         <label class="sc-label">Wartość punktowa</label>
-                        <select name="selected_points" class="sc-select">
+                        <!-- <select name="selected_points" class="sc-select">
                             <option value="">Wszystkie punkty</option>
                             <option value="200" {{ __SELF__.selectedPoints == '200' ? 'selected' : '' }}>200 pkt</option>
                             <option value="140" {{ __SELF__.selectedPoints == '140' ? 'selected' : '' }}>140 pkt</option>
@@ -347,7 +347,17 @@
                             <option value="70" {{ __SELF__.selectedPoints == '70' ? 'selected' : '' }}>70 pkt</option>
                             <option value="40" {{ __SELF__.selectedPoints == '40' ? 'selected' : '' }}>40 pkt</option>
                             <option value="20" {{ __SELF__.selectedPoints == '20' ? 'selected' : '' }}>20 pkt</option>
-                        </select>
+                        </select> -->
+                        <div style="width: 400px; display: flex; flex-direction: row; ">
+                            <div style="display: flex; gap: 12px; align-items:flex-end;">
+                                <label class="sc-label">Od</label>
+                                <input style="width: 50px;" min="0" class="sc-input" type="number">
+                            </div>  
+                            <div style="display: flex; gap: 12px; align-items: flex-end;margin-left: 10px;">
+                                <label class="sc-label">Do</label>
+                                <input style="width: 50px;" min="0" class="sc-input" type="number">
+                            </div>
+                        </div>
                     </div>
                     
                     <div style="display: flex; gap: 12px;">
